@@ -2,12 +2,20 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>File Meta Data Microservice</title>
+        <title>File Size Microservice</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <div id="app">
+            <h2>Upload a file</h2>
+            <input type="file" name="file" @change="onFileUpload">
+            {{ fileSize }}
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/bluebird/latest/bluebird.core.min.js"></script>
+        <script src="./js/upload.js"></script>
     </body>
-
 </html>

@@ -7,7 +7,7 @@ var favicon = require('serve-favicon');
 var morgan = require('morgan');
 var Promise = require('bluebird');
 var multer = require('multer');
-var upload = multer({ dest: 'uploads/'});
+var upload = multer({ dest: './uploads'});
 var app = express();
 
 app.listen(process.env.PORT || 3000);
@@ -22,7 +22,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/upload', upload.single('file'), (req, res, next) => {
-    return res.json(req.file.size);
+    console.log(req.file);
+    return res.json({fileSize: req.file});
 });
 
 app.use(function(err, req, res, next) {
