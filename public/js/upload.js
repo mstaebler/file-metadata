@@ -5,13 +5,11 @@ var app = new Vue({
     },
     methods: {
         onFileUpload(f) {
-            console.log('method was called');
             var file = f.target.files || f.dataTransfer.files;
-            console.log('file is: ',file);
-            axios.post('/upload', file).bind(this)
+            axios.post('/upload', {fileSize: file[0].size})
+            .bind(this)
             .then(function(response) {
-                console.log(response.data.fileSize);
-                this.fileSize = `file size: ${response.data.fileSize}`;
+                this.fileSize = `file size: ${response.data.fileSize.fileSize}`;
             })
             .catch(function(error) {
                 console.log(error);

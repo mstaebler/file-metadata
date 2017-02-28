@@ -10,7 +10,9 @@
     <body>
         <div id="app">
             <h2>Upload a file</h2>
-            <input type="file" name="file" @change="onFileUpload">
+            <form role="form" enctype="multipart/form-data" method="post">
+                <input type="file" name="upload" @change="onFileUpload">
+            </form>
             {{ fileSize }}
         </div>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
